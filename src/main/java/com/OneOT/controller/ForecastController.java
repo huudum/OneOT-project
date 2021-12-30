@@ -16,11 +16,6 @@ public class ForecastController {
         this.forecastsDao = forecastsDao;
     }
 
-    @GetMapping("")
-    public Place getPlace() {
-        return new Place("City","Misty",-3);
-    }
-
     @GetMapping("/forecasts")
     public List<Forecast> getForecasts() {
         return forecastsDao.getForecasts();
