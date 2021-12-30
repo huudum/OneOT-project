@@ -63,9 +63,7 @@ public class XmlHandler {
                     case "place" -> placeArrayList.add(getPlace(element));
                     case "wind" -> windArrayList.add(getWind(element));
                     case "sea" -> dayOrNight.setSea(element.getTextContent());
-                    case "peipsi" -> {
-                        System.out.println("Hitting this.");
-                        dayOrNight.setPeipsi(element.getTextContent());}
+                    case "peipsi" -> dayOrNight.setPeipsi(element.getTextContent());
                 }
             }
         }
