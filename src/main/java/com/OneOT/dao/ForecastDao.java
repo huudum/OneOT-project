@@ -39,15 +39,12 @@ public class ForecastDao {
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element element = (Element) node;
 
-                String date = element.getAttribute("date");
-
                 NodeList nodeListNight = element.getElementsByTagName("night").item(0).getChildNodes();
                 NodeList nodeListDay = element.getElementsByTagName("day").item(0).getChildNodes();
-
-                forecast.setDate(LocalDate.parse(date, formatter));
                 forecast.setDay(parseDay(nodeListDay));
                 forecast.setNight(parseNight(nodeListNight));
 
+                forecast.setDate(LocalDate.parse(element.getAttribute("date"), formatter));
                 forecastArrayList.add(forecast);
             }
         }
@@ -70,7 +67,9 @@ public class ForecastDao {
                     case "place" -> placeArrayList.add(getPlace(element));
                     case "wind" -> windArrayList.add(getWind(element));
                     case "sea" -> dayOrNight.setSea(element.getTextContent());
-                    case "peipsi" -> dayOrNight.setPeipsi(element.getTextContent());
+                    case "peipsi" -> {
+                        System.out.println("Hitting this.");
+                        dayOrNight.setPeipsi(element.getTextContent());}
                 }
             }
         }
@@ -118,6 +117,7 @@ public class ForecastDao {
         night.setPlaceList(universalClass.getPlaceList());
         night.setWindList(universalClass.getWindList());
         night.setSea(universalClass.getSea());
+        night.setPeipsi(universalClass.getPeipsi());
 
 
         return night;
@@ -134,6 +134,7 @@ public class ForecastDao {
         day.setPlaceList(universalClass.getPlaceList());
         day.setWindList(universalClass.getWindList());
         day.setSea(universalClass.getSea());
+        day.setPeipsi(universalClass.getPeipsi());
 
 
         return day;
@@ -155,12 +156,12 @@ public class ForecastDao {
             System.out.println("URL is malformed.");
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
-            System.out.println("Unable to parse XML.");
+            System.out.println("Unable to parse XML as document.");
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Unable to parse connection as inputStream.");
+            System.out.println("Unable to parse connection as stream.");
             e.printStackTrace();
         }
 
