@@ -2,7 +2,6 @@ package com.OneOT.controller;
 
 import com.OneOT.dao.ForecastDao;
 import com.OneOT.models.Forecast;
-import com.OneOT.models.Place;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
