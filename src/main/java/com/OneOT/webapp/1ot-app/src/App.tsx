@@ -1,4 +1,5 @@
 import {Component} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
     state = {
@@ -16,14 +17,16 @@ class App extends Component {
         console.log(forecasts)
         return (
             <div className="App">
-                <header className="App-header">
-                    <div className="App-intro">
-                        <h2>Forecasts</h2>
+                <header className="text-uppercase text-center">
+                    <h2>Forecasts</h2>
+                </header>
+                <body>
+                    <div className="flex">
                         {forecasts.map(forecast => {
                                 return (
                                     <>
-                                        <h4>Date: {forecast['date']}</h4>
-                                        <div className="forecastDay">
+                                        <h4 className="text-center">Date: {forecast['date']}</h4>
+                                        <div className="float-left">
                                             <h3>DAY</h3>
                                             <div className="genericValue">{forecast.day.phenomenon}</div>
                                             <div className="tempValue">Minimum
@@ -68,7 +71,7 @@ class App extends Component {
                                                 }
                                             </div>
                                         </div>
-                                        <div className="forecastNight">
+                                        <div className="float-right">
                                             <h3>NIGHT</h3>
                                             <div className="genericValue">{forecast.night.phenomenon}</div>
                                             <div className="tempValue">Minimum
@@ -118,9 +121,9 @@ class App extends Component {
                             }
                         )}
                     </div>
-                </header>
+                </body>
                 <footer>
-                    <div> All readings taken from <a
+                    <div className="fixed-bottom p-3 mb-2 bg-light text-dark"> All readings taken from <a  className="text-info"
                             href="https://www.ilmateenistus.ee/teenused/ilmainfo/eesti-prognoos-xml/">Riigiteenistus
                             website
                             forecast API.
