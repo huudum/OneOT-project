@@ -1,3 +1,35 @@
-.App {
-  background-color: #d8e1f2;
+header, body {
+    background: whitesmoke;
+}
+
+footer {
+    background: deepskyblue;
+}
+
+.tempTagMax, .tempValueMax, .tempTagMin, .tempValueMin ,.phenomenonText{
+    text-align: center;
+}
+
+.phenomenonText {
+    font-size: larger;
+}
+
+.tempValueMin,.tempValueMax {
+    font-size: large;
+}
+
+.dayTime {
+    text-align: center;
+}
+
+.temperatureColMax, .temperatureColMin{
+    margin: 10px;
+}
+
+.temperatureColMax {
+    outline: #ffda94 thick groove;
+}
+
+.temperatureColMin {
+    outline: #d9fffa thick groove;
 }
