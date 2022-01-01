@@ -107,12 +107,13 @@ public class XmlHandler {
         night.setPhenomenon(parse.getPhenomenon());
         night.setTempMax(parse.getTempMax());
         night.setTempMin(parse.getTempMin());
-        night.setDescription(parse.getDescription());
+
         night.setPlaceList(parse.getPlaceList());
         night.setWindList(parse.getWindList());
-        night.setSea(parse.getSea());
-        night.setPeipsi(parse.getPeipsi());
 
+        night.setDescription(parse.getDescription() == null? "*Information was not available.*" : parse.getDescription());
+        night.setSea(parse.getSea() == null ? "*Information was not available.*" : parse.getSea());
+        night.setPeipsi(parse.getPeipsi() == null ? "*Information was not available.*" : parse.getPeipsi());
 
         return night;
     }
@@ -121,14 +122,16 @@ public class XmlHandler {
         DayNight universalClass = parseDayNight(list);
 
         Day day = new Day();
-        day.setPhenomenon(universalClass.getPhenomenon());
         day.setTempMax(universalClass.getTempMax());
         day.setTempMin(universalClass.getTempMin());
-        day.setDescription(universalClass.getDescription());
-        day.setPlaceList(universalClass.getPlaceList());
+        day.setPhenomenon(universalClass.getPhenomenon());
+
         day.setWindList(universalClass.getWindList());
-        day.setSea(universalClass.getSea());
-        day.setPeipsi(universalClass.getPeipsi());
+        day.setPlaceList(universalClass.getPlaceList());
+
+        day.setSea(universalClass.getSea() == null ? "*Information was not available.*" : universalClass.getSea());
+        day.setDescription(universalClass.getDescription() == null ? "*Information was not available.*" : universalClass.getDescription());
+        day.setPeipsi(universalClass.getPeipsi() == null ? "*Information was not available.*" : universalClass.getPeipsi());
 
 
         return day;
