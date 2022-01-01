@@ -35,9 +35,11 @@ public class XmlHandler {
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element element = (Element) node;
 
-                NodeList nodeListNight = element.getElementsByTagName("night").item(0).getChildNodes();
+
                 NodeList nodeListDay = element.getElementsByTagName("day").item(0).getChildNodes();
                 forecast.setDay(parseDay(nodeListDay));
+
+                NodeList nodeListNight = element.getElementsByTagName("night").item(0).getChildNodes();
                 forecast.setNight(parseNight(nodeListNight));
 
                 forecast.setDate(LocalDate.parse(element.getAttribute("date"), formatter));
@@ -79,11 +81,11 @@ public class XmlHandler {
 
         place.setPhenomenon(el.getElementsByTagName("phenomenon").item(0).getTextContent());
         place.setName(el.getElementsByTagName("name").item(0).getTextContent());
-        if (el.getElementsByTagName("tempmin").item(0) == null) {
-            place.setTemp(Integer.parseInt(el.getElementsByTagName("tempmax").item(0).getTextContent()));
-        } else {
-            place.setTemp(Integer.parseInt(el.getElementsByTagName("tempmin").item(0).getTextContent()));
-        }
+        place.setTemp(
+                el.getElementsByTagName("tempmin").item(0) == null ?
+                        Integer.parseInt(el.getElementsByTagName("tempmax").item(0).getTextContent()) :
+                        Integer.parseInt(el.getElementsByTagName("tempmin").item(0).getTextContent())
+        );
 
         return place;
     }
@@ -111,7 +113,7 @@ public class XmlHandler {
         night.setPlaceList(parse.getPlaceList());
         night.setWindList(parse.getWindList());
 
-        night.setDescription(parse.getDescription() == null? "*Information was not available.*" : parse.getDescription());
+        night.setDescription(parse.getDescription() == null ? "*Information was not available.*" : parse.getDescription());
         night.setSea(parse.getSea() == null ? "*Information was not available.*" : parse.getSea());
         night.setPeipsi(parse.getPeipsi() == null ? "*Information was not available.*" : parse.getPeipsi());
 
@@ -158,8 +160,7 @@ public class XmlHandler {
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Unable to parse connection as stream.");
-            e.printStackTrace();
+            throw new RuntimeException("Unable to establish connection with API.");
         }
 
         throw new RuntimeException("Unexpected error occurred.");
