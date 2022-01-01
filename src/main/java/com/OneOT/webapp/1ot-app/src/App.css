@@ -2,27 +2,42 @@ header, body {
     background: whitesmoke;
 }
 
-footer {
-    background: deepskyblue;
-}
-
-.tempTagMax, .tempValueMax, .tempTagMin, .tempValueMin ,.phenomenonText{
+.tempTagMax, .tempValueMax, .tempTagMin, .tempValueMin, .textFieldSmallTitle, .dayTime, .dayTimeSmall, .placeName, .dateField, .placeTempMax, .placeTempMin, .windPlaceName{
     text-align: center;
 }
 
-.phenomenonText {
+.dayTimeSmall {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.dateField, .placeName {
+    border-bottom: black thin solid;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.placeRow {
+    align-content: center;
+    justify-content: center;
+}
+.placeColumn {
+    width: 50%;
+}
+
+.textFieldSmallTitle {
     font-size: larger;
 }
 
-.tempValueMin,.tempValueMax {
+.windPlaceName {
+    margin-top: 35px;
+}
+
+.tempValueMin, .tempValueMax, .textFieldBody, .dayTimeSmall, .textFieldSmallTitle, .windPlaceName {
     font-size: large;
 }
 
-.dayTime {
-    text-align: center;
-}
-
-.temperatureColMax, .temperatureColMin{
+.temperatureColMax, .temperatureColMin {
     margin: 10px;
 }
 
