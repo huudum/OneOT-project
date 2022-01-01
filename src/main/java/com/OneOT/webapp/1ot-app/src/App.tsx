@@ -1,7 +1,7 @@
 import {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {Accordion, Col, Container, Row} from "react-bootstrap";
+import {Accordion, Col, Container, Row, Spinner} from "react-bootstrap";
 
 class App extends Component {
     state = {
@@ -18,9 +18,9 @@ class App extends Component {
     render() {
         if (this.state.isLoading) {
             return (
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
                 )
         } else {
             const forecasts = this.state.forecasts as any[];
