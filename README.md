@@ -7,7 +7,7 @@ Project will be built using gradle wrapper.
 # Running the build
 1.  Clone the repository from https://github.com/huudum/OneOT-project 
     OR
-    Download the repository as a zip from dropbox link: https://www.dropbox.com/s/wq1hxyr9edc8obt/OneOT-project-master.zip?dl=0
+    Download the repository as a zip from dropbox link: https://www.dropbox.com/s/4ntp22oyuwpuwis/OneOT-project-master.zip?dl=0
 
 2.  After either cloning or downloading & unpacking the project, you will need to open the folder in your terminal. 
     The terminal should be open at the root of the project: on the folder "OneOT-project"
