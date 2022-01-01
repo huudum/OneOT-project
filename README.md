@@ -1,8 +1,8 @@
 # OneOT-project
-Project made as a demo for OneOT canditature.
-Frontend built using React and ReactBootstrap.
-Backend built using SpringBoot and Rest API.
-Project will be built using gradle wrapper.
+Project made as a demonstration for applying for a job at 1oT.
+Frontend built using React, most of the UI style with React Bootstrap.
+Backend built using Spring Boot and Rest API in Java.
+Project will be run using gradle wrapper.
 
 # Running the build
 1.  Clone the repository from https://github.com/huudum/OneOT-project 
@@ -12,11 +12,11 @@ Project will be built using gradle wrapper.
 2.  After either cloning or downloading & unpacking the project, you will need to open the folder in your terminal. 
     The terminal should be open at the root of the project: on the folder "OneOT-project"
 
-3. Use the packaged gradle wrapper to build the project.
-   On Windows the input would be: "./gradlew bootRun"
-   This will proceed to build and then run the project. 
-   It might take a small amount of time, as it needs to download all dependancies for both SpringBoot and React application.
-   The run will be successful on "80%", it will stay here.
+3.  Use the packaged gradle wrapper to build the project.
+    On Windows the command would be: "./gradlew bootRun". On other systems just "gradlew bootRun" should be fine.
+    This will proceed to build and then run the project. 
+    It might take a small amount of time, as it needs to download all dependencies for both SpringBoot and React application.
+    The run will be successful on "80%", it will stay on 80% until closed.
    
  4. The React webapp will be hosted on "localhost:8080". 
     If this port is already occupied during bootRun, the process will fail.
