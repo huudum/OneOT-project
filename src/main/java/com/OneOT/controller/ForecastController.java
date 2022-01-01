@@ -15,7 +15,7 @@ public class ForecastController {
         this.forecastsDao = forecastsDao;
     }
 
-    @GetMapping("/api/forecasts")
+    @GetMapping("/forecasts")
     public List<Forecast> getForecasts() {
         return forecastsDao.getForecasts();
     }
